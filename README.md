@@ -26,7 +26,6 @@ for specific help on using the `ILoggerFactory` and `ILogger<T>`.
 using Serilog;
 using Serilog.Formatting.Json;
 using Serilog.Sinks.Nats;
-using Serilog.Sinks.Nats.Sinks.Nats;
 
 public class Startup 
 {

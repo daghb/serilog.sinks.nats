@@ -15,7 +15,7 @@
 using System;
 using MyNatsClient;
 
-namespace Serilog.Sinks.Nats.Sinks.Nats
+namespace Serilog.Sinks.Nats
 {
     /// <summary>
     /// Configuration class for Nats

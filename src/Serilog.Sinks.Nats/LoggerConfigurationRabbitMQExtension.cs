@@ -17,7 +17,6 @@ using MyNatsClient;
 using Serilog.Configuration;
 using Serilog.Formatting;
 using Serilog.Sinks.Nats;
-using Serilog.Sinks.Nats.Sinks.Nats;
 
 namespace Serilog
 {

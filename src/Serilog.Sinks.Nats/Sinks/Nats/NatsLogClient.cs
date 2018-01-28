@@ -13,12 +13,8 @@
 // limitations under the License.
 
 using System;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
 using MyNatsClient;
 using MyNatsClient.Encodings.Json;
-using Serilog.Sinks.Nats.Sinks.Nats;
 
 namespace Serilog.Sinks.Nats
 {
@@ -77,7 +73,7 @@ namespace Serilog.Sinks.Nats
                 _natsClient.Connect();
 
             // push message to exchange
-            var a = _natsClient.PubAsJsonAsync(_subject, message).ConfigureAwait(false);
+            _natsClient.PubAsJsonAsync(_subject, message).ConfigureAwait(false);
         }
 
         public void Dispose()
