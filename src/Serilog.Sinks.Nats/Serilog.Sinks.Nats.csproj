@@ -12,6 +12,7 @@
     <Authors>Dag H. Baardsen</Authors>
     <Company />
     <Description>Serilog sink for NATS messaging server</Description>
+    <PackageReleaseNotes>Fixed a few bugs</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
