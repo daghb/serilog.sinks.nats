@@ -13,17 +13,17 @@ test: off
 artifacts:  
 - path: .\**\artifacts\**\Serilog.*.nupkg
   name: NuGet
-deploy:  
-- provider: NuGet
-  server: https://www.myget.org/F/temp-forks/api/v2/package
-  api_key:
-    secure: VcEqx1411TqpedhBjftqTYyIKcd+tZKvXlxQEnEFC4ashyitwS7Zy/s4HU5DxASU
-  skip_symbols: true
-  on:
-    branch: master
-- provider: NuGet
-  name: production
-  api_key:
-    secure: JXj9vT5r0m1y63TxurMG5n2OUWmOyEzOJILIVyeKF2bmgshuMvosVv5pqpTaciHi
-  on:
-    branch: master
+# deploy:  
+# - provider: NuGet
+#   server: https://www.myget.org/F/temp-forks/api/v2/package
+#   api_key:
+#     secure: VcEqx1411TqpedhBjftqTYyIKcd+tZKvXlxQEnEFC4ashyitwS7Zy/s4HU5DxASU
+#   skip_symbols: true
+#   on:
+#     branch: master
+# - provider: NuGet
+#   name: production
+#   api_key:
+#     secure: JXj9vT5r0m1y63TxurMG5n2OUWmOyEzOJILIVyeKF2bmgshuMvosVv5pqpTaciHi
+#   on:
+#     branch: master
