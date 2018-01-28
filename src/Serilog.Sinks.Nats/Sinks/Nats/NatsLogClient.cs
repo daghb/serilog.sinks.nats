@@ -21,7 +21,7 @@ using Serilog.Sinks.Nats.Sinks.Nats;
 namespace Serilog.Sinks.Nats
 {
     /// <summary>
-    /// RabbitMqClient - this class is the engine that lets you send messages to RabbitMq
+    /// NatsLogClient - this class is the engine that lets you send messages to Nats
     /// </summary>
     public class NatsLogClient : IDisposable
     {
@@ -31,7 +31,7 @@ namespace Serilog.Sinks.Nats
         private readonly string _subject;
 
         /// <summary>
-        /// Constructor for RabbitMqClient
+        /// Constructor for NatsLogClient
         /// </summary>
         /// <param name="configuration">mandatory</param>
         public NatsLogClient(NatsConfiguration configuration)

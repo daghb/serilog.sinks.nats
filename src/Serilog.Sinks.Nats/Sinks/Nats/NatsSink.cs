@@ -24,7 +24,7 @@ using Serilog.Sinks.Nats.Sinks.Nats;
 namespace Serilog.Sinks.Nats
 {
     /// <summary>
-    /// Serilog RabbitMq Sink - Lets you log to RabbitMq using Serilog
+    /// Serilog Nats Sink - Lets you log to Nats using Serilog
     /// </summary>
     public class NatsSink : PeriodicBatchingSink
     {

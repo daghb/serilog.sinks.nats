@@ -21,7 +21,7 @@ using Serilog.Sinks.Nats.Sinks.Nats;
 
 namespace Serilog
 {
-    public static class LoggerConfigurationRabbitMqExtension
+    public static class LoggerConfigurationNatsExtension
     {
         public static LoggerConfiguration Nats(
             this LoggerSinkConfiguration loggerConfiguration,
