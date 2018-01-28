@@ -1,6 +1,6 @@
 # serilog.sinks.nats
 
-<img src="https://ci.appveyor.com/api/projects/status/row7ob6fhgmvtqwb?svg=true" /> 
+<img src="https://ci.appveyor.com/api/projects/status/row7ob6fhgmvtqwb?svg=true" /> <br />
 <a href="https://www.nuget.org/packages/Serilog.Sinks.Nats/">
   <img src="https://img.shields.io/nuget/v/Serilog.Sinks.Nats.svg" />
 </a>
