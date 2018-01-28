@@ -30,7 +30,7 @@ public class Startup
    {
       var config = new NatsConfiguration
       {
-          hostname = _config["NATS_HOST"]
+          host = _config["NATS_HOST"]
           // ...
       };
 
