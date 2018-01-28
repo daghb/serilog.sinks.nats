@@ -20,24 +20,24 @@ using Serilog.Formatting.Compact;
 using Serilog.Sinks.PeriodicBatching;
 using System.Collections.Generic;
 using Serilog.Sinks.Nats.Sinks.Nats;
+using System.Threading.Tasks;
 
 namespace Serilog.Sinks.Nats
 {
+    /// <inheritdoc />
     /// <summary>
     /// Serilog Nats Sink - Lets you log to Nats using Serilog
     /// </summary>
     public class NatsSink : PeriodicBatchingSink
     {
         private readonly ITextFormatter _formatter;
-        private readonly IFormatProvider _formatProvider;
         private readonly NatsLogClient _client;
 
-        public NatsSink(NatsConfiguration configuration,
-            ITextFormatter formatter,
-            IFormatProvider formatProvider) : base(configuration.BatchPostingLimit, configuration.Period)
+        public NatsSink(
+            NatsConfiguration configuration,
+            ITextFormatter formatter) : base(configuration.BatchPostingLimit, configuration.Period)
         {
             _formatter = formatter ?? new CompactJsonFormatter();
-            _formatProvider = formatProvider;
             _client = new NatsLogClient(configuration);
         }
 
@@ -49,11 +49,6 @@ namespace Serilog.Sinks.Nats
                 _formatter.Format(logEvent, sw);
                 _client.Publish(sw.ToString());
             }
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
         }
     }
 }

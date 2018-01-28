@@ -26,8 +26,7 @@ namespace Serilog
         public static LoggerConfiguration Nats(
             this LoggerSinkConfiguration loggerConfiguration,
             NatsConfiguration natsConfiguration,
-            ITextFormatter formatter,
-            IFormatProvider formatProvider = null)
+            ITextFormatter formatter)
         {
             if (loggerConfiguration == null) throw new ArgumentNullException(nameof(loggerConfiguration));
             if (natsConfiguration == null) throw new ArgumentNullException(nameof(natsConfiguration));
@@ -47,8 +46,7 @@ namespace Serilog
                 natsConfiguration.Verbose,
                 natsConfiguration.BatchPostingLimit,
                 (int)natsConfiguration.Period.TotalMilliseconds,
-                formatter,
-                formatProvider);
+                formatter);
         }
 
         private static LoggerConfiguration Nats(
@@ -65,9 +63,8 @@ namespace Serilog
             SocketOptions socketOptions = null,
             bool verbose = false,
             int batchSizeLimit = 50,
-            int periodLimitInMs = 2000,
-            ITextFormatter formatter = null,
-            IFormatProvider formatProvider = null)
+            int periodLimitInMs = 100,
+            ITextFormatter formatter = null)
         {
             // guards
             if (loggerConfiguration == null) throw new ArgumentNullException(nameof(loggerConfiguration));
@@ -96,7 +93,7 @@ namespace Serilog
             
             return
                 loggerConfiguration
-                    .Sink(new NatsSink(config, formatter, formatProvider));
+                    .Sink(new NatsSink(config, formatter));
         }
     }
 }

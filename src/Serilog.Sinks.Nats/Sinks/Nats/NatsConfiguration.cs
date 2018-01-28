@@ -23,7 +23,7 @@ namespace Serilog.Sinks.Nats.Sinks.Nats
     public class NatsConfiguration
     {
         /// <summary>
-        /// Gets or sets value ndicating Nats subject to post message into
+        /// Gets or sets value indicating Nats subject to post message into
         /// </summary>
         public string Subject { get; set; }
         /// <summary>

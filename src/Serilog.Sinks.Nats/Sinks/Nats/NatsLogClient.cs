@@ -13,13 +13,16 @@
 // limitations under the License.
 
 using System;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using MyNatsClient;
 using MyNatsClient.Encodings.Json;
 using Serilog.Sinks.Nats.Sinks.Nats;
 
 namespace Serilog.Sinks.Nats
 {
+    /// <inheritdoc />
     /// <summary>
     /// NatsLogClient - this class is the engine that lets you send messages to Nats
     /// </summary>
@@ -50,7 +53,7 @@ namespace Serilog.Sinks.Nats
         /// </summary>
         private void InitializeEndpoint()
         {
-            _natsClient = new NatsClient(_config.ClientId, new ConnectionInfo(_config.Host, _config.Port)
+            var connectionInfo = new ConnectionInfo(_config.Host, _config.Port)
             {
                 AutoReconnectOnFailure = _config.AutoReconnectOnFailure,
                 AutoRespondToPing = _config.AutoRespondToPing,
@@ -59,7 +62,9 @@ namespace Serilog.Sinks.Nats
                 RequestTimeoutMs = _config.RequestTimeoutMs,
                 SocketOptions = _config.SocketOptions,
                 Verbose = _config.Verbose
-            });
+            };
+
+            _natsClient = new NatsClient(_config.ClientId, connectionInfo);
         }
 
         /// <summary>
@@ -68,8 +73,11 @@ namespace Serilog.Sinks.Nats
         /// <param name="message"></param>
         public void Publish(string message)
         {
+            if (!_natsClient.IsConnected)
+                _natsClient.Connect();
+
             // push message to exchange
-            _natsClient.PubAsJsonAsync(_subject, message).ConfigureAwait(false);
+            var a = _natsClient.PubAsJsonAsync(_subject, message).ConfigureAwait(false);
         }
 
         public void Dispose()

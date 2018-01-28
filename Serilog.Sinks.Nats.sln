@@ -3,7 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.Nats", "src\Serilog.Sinks.Nats\Serilog.Sinks.Nats.csproj", "{8105CF52-0689-4D2F-9FAC-CD3E2B3373FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Sinks.Nats", "src\Serilog.Sinks.Nats\Serilog.Sinks.Nats.csproj", "{8105CF52-0689-4D2F-9FAC-CD3E2B3373FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09D21383-3D27-437D-87AF-6B49207BA65F}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		Build.ps1 = Build.ps1
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D8E6C471-2A0D-4BF9-B595-C0E5BA2EDAD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "test\IntegrationTests\IntegrationTests.csproj", "{42E27182-8E7F-4EA4-9B77-8EF8D03C99E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +26,16 @@ Global
 		{8105CF52-0689-4D2F-9FAC-CD3E2B3373FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8105CF52-0689-4D2F-9FAC-CD3E2B3373FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8105CF52-0689-4D2F-9FAC-CD3E2B3373FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42E27182-8E7F-4EA4-9B77-8EF8D03C99E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42E27182-8E7F-4EA4-9B77-8EF8D03C99E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42E27182-8E7F-4EA4-9B77-8EF8D03C99E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42E27182-8E7F-4EA4-9B77-8EF8D03C99E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42E27182-8E7F-4EA4-9B77-8EF8D03C99E6} = {D8E6C471-2A0D-4BF9-B595-C0E5BA2EDAD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E071E636-ED59-49C2-A1AB-A5A8256D038C}
